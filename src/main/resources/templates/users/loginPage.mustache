@@ -1,0 +1,14 @@
+{{>layouts/header}}
+<form class="container" action="/doLogin" method="post">
+    <div class="mb-3">
+        <label class="form-label">Email address</label>
+        <input type="text" name="email">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" name="password">
+    </div>
+    <button type="submit" value="Login" class="btn btn-primary">Login</button>
+    <a href="/signUp">회원가입</a>
+</form>
+{{>layouts/footer}}

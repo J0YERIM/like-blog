@@ -1,0 +1,29 @@
+{{>layouts/header}}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Email</th>
+        <th scope="col">Username</th>
+        <th scope="col">Nickname</th>
+        <th scope="col">Password</th>
+        <th scope="col">Phone</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#user}}
+    <tr>
+        <th scope="row">{{id}}</th>
+        <td>{{email}}</td>
+        <td>{{username}}</td>
+        <td>{{nickname}}</td>
+        <td>{{password}}</td>
+        <td>{{phone}}</td>
+    </tr>
+    {{/user}}
+    </tbody>
+</table>
+<a href="/users">회원목록</a>
+<a href="/users/{{user.id}}/edit">회원수정</a>
+<a href="/users/{{user.id}}/delete" class="btn btn-danger">회원탈퇴</a>
+{{>layouts/footer}}

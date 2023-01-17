@@ -1,0 +1,22 @@
+{{>layouts/header}}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">BlogName</th>
+        <th scope="col">Member</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#blogList}}
+        <tr>
+            <td>{{id}}</td>
+            <td><a href="/blogs/{{id}}">{{blog_name}}</a></td>
+            <td>{{member.email}}</td>
+        </tr>
+    {{/blogList}}
+    </tbody>
+</table>
+<a href="/blogs/new">블로그 만들기</a>
+<a href="/">시작페이지</a>
+{{>layouts/footer}}

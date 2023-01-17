@@ -1,0 +1,16 @@
+{{>layouts/header}}
+{{#blog}}
+    <form class="container" action="/blogs/update" method="post">
+        <input name="id" type="hidden" value="{{id}}">
+        <div class="mb-3">
+            <label class="form-label">BlogName</label>
+            <label>
+                <input type="text" name="blog_name" value="{{blog_name}}">
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <a href="/blogs">블로그목록</a>
+    <a href="/">시작페이지</a>
+{{/blog}}
+{{>layouts/footer}}

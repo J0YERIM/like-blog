@@ -1,0 +1,24 @@
+{{>layouts/header}}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">BlogName</th>
+        <th scope="col">Member</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#blog}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{blog_name}}</td>
+            <td>{{member.email}}</td>
+        </tr>
+    {{/blog}}
+    </tbody>
+</table>
+<a href="/blogs/new">블로그 만들기</a>
+<a href="/blogs/{{blog.id}}/edit">블로그수정</a>
+<a href="/blogs/{{blog.id}}/delete" class="btn btn-danger">블로그삭제</a>
+<a href="/">시작페이지</a>
+{{>layouts/footer}}

@@ -1,0 +1,12 @@
+{{>layouts/header}}
+<form action="/blogs/new" method="post">
+    <div>
+        <label class="form-label">블로그명</label>
+        <label>
+            <input type="text" name="blog_name">
+        </label>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+<a href="/">시작페이지</a>
+{{>layouts/footer}}

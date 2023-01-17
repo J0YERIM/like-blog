@@ -1,0 +1,28 @@
+{{>layouts/header}}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Email</th>
+        <th scope="col">Name</th>
+        <th scope="col">Nickname</th>
+        <th scope="col">Password</th>
+        <th scope="col">Phone</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#userList}}
+        <tr>
+            <th scope="row">{{id}}</th>
+            <td><a href="/users/{{id}}">{{email}}</a></td>
+            <td>{{username}}</td>
+            <td>{{nickname}}</td>
+            <td>{{password}}</td>
+            <td>{{phone}}</td>
+        </tr>
+    {{/userList}}
+    </tbody>
+</table>
+<a href="/users/new">회원가입</a>
+<a href="/">시작페이지</a>
+{{>layouts/footer}}
