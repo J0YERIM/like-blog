@@ -1,0 +1,30 @@
+{{>layouts/header}}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">제목</th>
+        <th scope="col">본문</th>
+        <th scope="col">작성날짜</th>
+        <th scope="col">최종수정날짜</th>
+        <th scope="col">블로그ID</th>
+        <th scope="col">블로그명</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#postList}}
+        <tr>
+            <td>{{id}}</td>
+            <td><a href="/posts/{{id}}">{{title}}</a></td>
+            <td>{{content}}</td>
+            <td>{{created_date}}</td>
+            <td>{{modified_date}}</td>
+            <td>{{blog.id}}</td>
+            <td>{{blog.blog_name}}</td>
+        </tr>
+    {{/postList}}
+    </tbody>
+</table>
+<a href="/posts/new">포스트 만들기</a>
+<a href="/">시작페이지</a>
+{{>layouts/footer}}

@@ -9,13 +9,12 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Getter
 @Table(name = "comment")
 @Entity
-public class Comment {
+public class Comment extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,26 +24,28 @@ public class Comment {
     @Column
     private String content;
 
-    @CreationTimestamp
-    @Column(name = "created_at")
-    private LocalDateTime created_at = LocalDateTime.now();
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "member_id")
     private Member member;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "post_id")
+    private Post post;
+
     public void setMember(Member member) {
+        if (this.member != null) {
+            this.member.getComments().remove(this);
+        }
         this.member = member;
         if(!member.getComments().contains(this)) {
             member.getComments().add(this);
         }
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "post_id")
-    private Post post;
-
     public void setPost(Post post) {
+        if (this.post != null) {
+            this.post.getComments().remove(this);
+        }
         this.post = post;
         if(!post.getComments().contains(this)) {
             post.getComments().add(this);

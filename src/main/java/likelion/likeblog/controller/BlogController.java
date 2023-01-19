@@ -29,7 +29,7 @@ public class BlogController {
     @PostMapping("/blogs/new")
     public String create(BlogForm form, @AuthenticationPrincipal Member member) {
         Blog created = blogService.save(form, member);
-        return "index";
+        return "redirect:/blogs/" + created.getId();
     }
 
     @GetMapping("/blogs")

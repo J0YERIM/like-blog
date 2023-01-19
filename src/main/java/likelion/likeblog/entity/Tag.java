@@ -7,13 +7,12 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
-@AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Getter
 @Table(name = "tag")
 @Entity
-public class Tag {
+public class Tag extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,8 +27,10 @@ public class Tag {
     private Post post;
 
     public void setPost(Post post) {
+        if (this.post != null) {
+            this.post.getTags().remove(this);
+        }
         this.post = post;
-
         if (!post.getTags().contains(this)) {
             post.getTags().add(this);
         }

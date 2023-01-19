@@ -1,0 +1,22 @@
+{{>layouts/header}}
+{{#post}}
+<form action="/posts/update" method="post">
+    <input name="id" type="hidden" value="{{id}}">
+    <div>
+        <label class="form-label">제목</label>
+        <label>
+            <input type="text" name="title" value="{{title}}">
+        </label>
+    </div>
+    <div>
+        <label class="form-label">내용</label>
+        <label>
+            <input type="text" name="content" value="{{content}}">
+        </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{{/post}}
+<a href="/posts">포스트목록</a>
+<a href="/">시작페이지</a>
+{{>layouts/footer}}
