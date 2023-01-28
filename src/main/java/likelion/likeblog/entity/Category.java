@@ -1,17 +1,12 @@
 package likelion.likeblog.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Getter
 @Table(name = "category")
 @Entity
@@ -34,5 +29,12 @@ public class Category {
         if (post.getCategory() != this) {
             post.setCategory(this);
         }
+    }
+
+    @Builder
+    public Category(Long id, String category_name, List<Post> posts) {
+        this.id = id;
+        this.category_name = category_name;
+        this.posts = posts;
     }
 }

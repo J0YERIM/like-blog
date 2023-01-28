@@ -1,0 +1,38 @@
+{{>layouts/header}}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">카테고리 명</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#category}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{category_name}}</td>
+        </tr>
+    {{/category}}
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">게시물 제목</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#postList}}
+        <tr>
+            <td>{{id}}</td>
+            <td><a href="/posts/{{id}}">{{title}}</a></td>
+        </tr>
+    {{/postList}}
+    </tbody>
+</table>
+<a href="/">시작페이지</a>
+<a href="/categorys/{{category.id}}/edit">카테고리명 수정</a>
+<a href="/categorys/{{category.id}}/delete">카테고리명 삭제</a>
+{{>layouts/footer}}
