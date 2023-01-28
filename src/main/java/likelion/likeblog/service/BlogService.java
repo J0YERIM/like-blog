@@ -16,8 +16,12 @@ import java.util.List;
 @Service
 public class BlogService {
 
-    @Autowired
     private BlogRepository blogRepository;
+
+    @Autowired
+    public BlogService(BlogRepository blogRepository) {
+        this.blogRepository = blogRepository;
+    }
 
     public Blog save(BlogForm form, Member member) {
         Blog blog = Blog.builder()

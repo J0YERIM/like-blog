@@ -19,8 +19,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class PostController {
 
-    @Autowired
     private PostService postService;
+
+    @Autowired
+    public PostController(PostService postService) {
+        this.postService = postService;
+    }
 
     @GetMapping("/posts/new")
     public String newPostForm() {

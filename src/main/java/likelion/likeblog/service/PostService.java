@@ -17,14 +17,18 @@ import java.util.List;
 @Service
 public class PostService {
 
-    @Autowired
     private PostRepository postRepository;
 
-    @Autowired
     private BlogRepository blogRepository;
 
-    @Autowired
     private MemberRepository memberRepository;
+
+    @Autowired
+    public PostService(PostRepository postRepository, BlogRepository blogRepository, MemberRepository memberRepository) {
+        this.postRepository = postRepository;
+        this.blogRepository = blogRepository;
+        this.memberRepository = memberRepository;
+    }
 
     public Post save(PostForm form, Member member) {
         Post post = Post.builder()
@@ -60,7 +64,7 @@ public class PostService {
 
     public Post update(PostForm form) {
         Post target = postRepository.findById(form.getId()).orElse(null);
-        if(target != null) {
+        if (target != null) {
             target.setTitle(form.getTitle());
             target.setContent(form.getContent());
             postRepository.save(target);

@@ -15,8 +15,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Slf4j
 public class MemberController {
 
-    @Autowired
     private MemberService memberService;
+
+    @Autowired
+    public MemberController(MemberService memberService) {
+        this.memberService = memberService;
+    }
 
     @GetMapping("/users/new")
     public String newUserForm() {

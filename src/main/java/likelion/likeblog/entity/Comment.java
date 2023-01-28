@@ -1,15 +1,13 @@
 package likelion.likeblog.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
 @Getter
 @Table(name = "comment")
@@ -50,5 +48,15 @@ public class Comment extends BaseEntity {
         if(!post.getComments().contains(this)) {
             post.getComments().add(this);
         }
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    @Builder
+    public Comment(String content, Post post) {
+
+        this.content = content;
     }
 }

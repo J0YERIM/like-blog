@@ -14,11 +14,16 @@ import java.util.List;
 @Slf4j
 @Service
 public class MemberService {
-    @Autowired
+
     private MemberRepository memberRepository;
 
-    @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    public MemberService(MemberRepository memberRepository, PasswordEncoder passwordEncoder) {
+        this.memberRepository = memberRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     public Member save(MemberForm form) {
         log.info(form.toString());

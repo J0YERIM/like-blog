@@ -1,0 +1,17 @@
+{{>layouts/header}}
+{{#comment}}
+    <form action="/comments/update" method="post">
+        <input name="id" type="hidden" value="{{id}}">
+
+        <div>
+            <label class="form-label">내용</label>
+            <label>
+                <input type="text" name="content" value="{{content}}">
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{{/comment}}
+<a href="/posts">포스트목록</a>
+<a href="/">시작페이지</a>
+{{>layouts/footer}}

@@ -18,8 +18,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class BlogController {
 
-    @Autowired
     private BlogService blogService;
+
+    @Autowired
+    public BlogController(BlogService blogService) {
+        this.blogService = blogService;
+    }
 
     @GetMapping("/blogs/new")
     public String newBlogForm() {

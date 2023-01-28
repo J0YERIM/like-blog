@@ -17,8 +17,12 @@ import java.util.Arrays;
 @Service("member")
 public class BackendLoginService implements UserDetailsService {
 
-    @Autowired
     private MemberRepository memberRepository;
+
+    @Autowired
+    public BackendLoginService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     @Override
     public Member loadUserByUsername(String email) throws UsernameNotFoundException {

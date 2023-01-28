@@ -14,8 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class MainController {
 
-    @Autowired
     private MemberService memberService;
+
+    @Autowired
+    public MainController(MemberService memberService) {
+        this.memberService = memberService;
+    }
 
     @GetMapping("/")
     public String getIndex() { return "index"; }

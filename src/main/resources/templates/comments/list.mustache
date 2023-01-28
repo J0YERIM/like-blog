@@ -1,0 +1,26 @@
+{{>layouts/header}}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">내용</th>
+        <th scope="col">Email</th>
+        <th scope="col">작성날짜</th>
+        <th scope="col">최종수정날짜</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#commentList}}
+        <tr>
+            <td>{{id}}</td>
+            <td><a href="/comments/{{id}}">{{content}}</a></td>
+            <td>{{member.email}}</td>
+            <td>{{created_date}}</td>
+            <td>{{modified_date}}</td>
+        </tr>
+    {{/commentList}}
+    </tbody>
+</table>
+<a href="/posts/{{post_id}}">포스트 보기</a>
+<a href="/">시작페이지</a>
+{{>layouts/footer}}
