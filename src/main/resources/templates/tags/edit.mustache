@@ -1,0 +1,15 @@
+{{>layouts/header}}
+{{#tag}}
+    <form action="/posts/{{post_id}}/tags/update" method="post">
+        <input name="id" type="hidden" value="{{id}}">
+        <div>
+            <label class="form-label">태그명</label>
+            <label>
+                <input type="text" name="tag_name" value="{{tag_name}}">
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{{/tag}}
+<a href="/">시작페이지</a>
+{{>layouts/footer}}

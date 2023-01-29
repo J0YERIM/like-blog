@@ -1,11 +1,9 @@
 package likelion.likeblog.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @ToString
@@ -34,5 +32,16 @@ public class Tag extends BaseEntity {
         if (!post.getTags().contains(this)) {
             post.getTags().add(this);
         }
+    }
+
+    @Builder
+    public Tag(Long id, String tag_name, Post post) {
+        this.id = id;
+        this.tag_name = tag_name;
+        this.post = post;
+    }
+
+    public void setTag_name(String tag_name) {
+        this.tag_name = tag_name;
     }
 }

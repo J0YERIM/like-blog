@@ -1,0 +1,21 @@
+{{>layouts/header}}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">태그명</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#tag}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{tag_name}}</td>
+        </tr>
+    {{/tag}}
+    </tbody>
+</table>
+<a href="/">시작페이지</a>
+<a href="/posts/{{post_id}}/tags/{{tag.id}}/edit">태그명 수정</a>
+<a href="/posts/{{post_id}}/tags/{{tag.id}}/delete">태그명 삭제</a>
+{{>layouts/footer}}
