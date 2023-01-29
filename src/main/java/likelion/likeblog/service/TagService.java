@@ -1,19 +1,14 @@
 package likelion.likeblog.service;
 
-import likelion.likeblog.dto.CategoryForm;
 import likelion.likeblog.dto.TagForm;
-import likelion.likeblog.entity.Category;
 import likelion.likeblog.entity.Member;
 import likelion.likeblog.entity.Post;
 import likelion.likeblog.entity.Tag;
 import likelion.likeblog.repository.MemberRepository;
 import likelion.likeblog.repository.PostRepository;
 import likelion.likeblog.repository.TagRepository;
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -22,13 +17,11 @@ import java.util.NoSuchElementException;
 public class TagService {
 
     private TagRepository tagRepository;
-    private MemberRepository memberRepository;
     private PostRepository postRepository;
 
     @Autowired
-    public TagService(TagRepository tagRepository, MemberRepository memberRepository, PostRepository postRepository) {
+    public TagService(TagRepository tagRepository, PostRepository postRepository) {
         this.tagRepository = tagRepository;
-        this.memberRepository = memberRepository;
         this.postRepository = postRepository;
     }
 

@@ -1,9 +1,6 @@
 package likelion.likeblog.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -48,5 +45,11 @@ public class Heart extends BaseEntity {
         if (!post.getHearts().contains(this)) {
             post.getHearts().add(this);
         }
+    }
+
+    @Builder
+    public Heart(Member member, Post post) {
+        this.member = member;
+        this.post = post;
     }
 }

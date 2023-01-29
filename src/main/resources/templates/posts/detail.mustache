@@ -33,5 +33,9 @@
 <a href="/posts/{{post.id}}/comments">댓글 보기</a><br>
 <a href="/posts/{{post.id}}/tags/new">태그 작성</a>
 <a href="/posts/{{post.id}}/tags">태그 보기</a><br>
+
+<form action="/posts/{{post.id}}/hearts/new" method="post">
+    <button type="submit" class="btn btn-primary">좋아요</button>
+</form>
 <a href="/">시작페이지</a>
 {{>layouts/footer}}
