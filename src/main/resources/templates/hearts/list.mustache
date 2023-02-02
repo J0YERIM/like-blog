@@ -1,0 +1,25 @@
+{{>layouts/header}}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Member ID</th>
+        <th scope="col">Post ID</th>
+        <th scope="col">생성 날짜</th>
+        <th scope="col">최종 수정 날짜</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#heartList}}
+        <tr>
+            <td>{{id}}</td>
+            <td><a href="/users/{{member.id}}">{{member.id}}</a></td>
+            <td><a href="/posts/{{post.id}}">{{post.id}}</a></td>
+            <td>{{created_date}}</td>
+            <td>{{modified_date}}</td>
+        </tr>
+    {{/heartList}}
+    </tbody>
+</table>
+<a href="/">시작페이지</a>
+{{>layouts/footer}}

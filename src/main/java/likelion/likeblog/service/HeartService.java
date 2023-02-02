@@ -45,4 +45,19 @@ public class HeartService {
 
         return heartRepository.save(heart);
     }
+
+    public List<Heart> list(Long post_id) {
+        List<Heart> heartList = heartRepository.findByPostId(post_id);
+        return heartList;
+    }
+
+    public void delete(Long post_id, Member member) {
+        // 해당 post_id에 member_id를 가지는 하트가 있다면 삭제
+        Post post = postRepository.findById(post_id).orElseThrow(() -> new NoSuchElementException());
+        List<Heart> heartList = heartRepository.findByPostId(post_id);
+        Heart heart = heartRepository.findByMemberId(member.getId());
+
+        if (heart != null)
+            heartRepository.delete(heart);
+    }
 }

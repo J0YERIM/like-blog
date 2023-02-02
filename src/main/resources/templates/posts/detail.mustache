@@ -37,5 +37,7 @@
 <form action="/posts/{{post.id}}/hearts/new" method="post">
     <button type="submit" class="btn btn-primary">좋아요</button>
 </form>
+<a href="/posts/{{post.id}}/hearts">좋아요 목록</a>
+<a href="/posts/{{post.id}}/hearts/delete">좋아요 삭제</a>
 <a href="/">시작페이지</a>
 {{>layouts/footer}}
